@@ -179,7 +179,7 @@ ver_seg_num = int(input().split()[2])
 for _ in range(ver_seg_num):
     line = input()
     values = list(map(int, line.split()))
-    # (seg, y, param) param=2 means the endpoint is a start point, point=0 means the endpoint is an end point
+    # (seg, y, param) param=2 means the endpoint is a start point, point=0 means the endpoint is an end point of the segments
     maxpq.push((values, values[1], 0))
     maxpq.push((values, values[2], 2))
 
