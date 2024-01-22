@@ -1,5 +1,6 @@
 import heapq
 import time
+import csv
 # O((m+n)log(m+n))
 
 # Classes Definition
@@ -201,24 +202,25 @@ class MaxPriorityQueue:
 def sweep_plane():
     # read the input horizontal segments and push endpoints into maxpq
     maxpq = MaxPriorityQueue()
-    hor_seg_num = int(input().split()[2])
+    with open('dataset.txt', 'r') as file:
+        hor_seg_num = int(file.readline().split()[2])
 
-    for _ in range(hor_seg_num):
-        line = input()
-        values = list(map(int, line.split()))
-        # (seg, y, param) param=1 means the endpoint is a horizontal segment
-        maxpq.push((values, values[2], 1))
-        # maxpq.push((values, values[2], 2))
+        for _ in range(hor_seg_num):
+            line = file.readline()
+            values = list(map(int, line.split()))
+            # (seg, y, param) param=1 means the endpoint is a horizontal segment
+            maxpq.push((values, values[2], 1))
+            # maxpq.push((values, values[2], 2))
 
-    # read the input vertical segments and push endpoints into maxpq
-    ver_seg_num = int(input().split()[2])
+        # read the input vertical segments and push endpoints into maxpq
+        ver_seg_num = int(file.readline().split()[2])
 
-    for _ in range(ver_seg_num):
-        line = input()
-        values = list(map(int, line.split()))
-        # (seg, y, param) param=2 means the endpoint is a start point, point=0 means the endpoint is an end point
-        maxpq.push((values, values[1], 0))
-        maxpq.push((values, values[2], 2))
+        for _ in range(ver_seg_num):
+            line = file.readline()
+            values = list(map(int, line.split()))
+            # (seg, y, param) param=2 means the endpoint is a start point, point=0 means the endpoint is an end point
+            maxpq.push((values, values[1], 0))
+            maxpq.push((values, values[2], 2))
 
     start_time = time.time()
     avl = AVLTree()
@@ -236,8 +238,12 @@ def sweep_plane():
     end_time = time.time()
     elapsed_time = end_time - start_time
 
-    print(res)
-    print(f"Running time: {elapsed_time}")
+    with open('sweep_plane_05_5.csv', 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow((hor_seg_num, res, elapsed_time))
+    # print(res)
+    # print(f"Running time: {elapsed_time}")
+    return elapsed_time
 
 if __name__ == "__main__":
     sweep_plane()

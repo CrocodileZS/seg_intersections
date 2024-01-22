@@ -43,23 +43,23 @@ def data_generate(x_range, y_range, length_min, length_max, m, n):
     horizontal_segments = generate_horizontal_segments(m, x_range, y_range, length_min, length_max)
     vertical_segments = generate_vertical_segments(n, x_range, y_range, length_min, length_max)
 
-    # Plotting the segments
-    plt.figure(figsize=(10, 10))
-
-    # Plot horizontal segments
-    for x1, x2, y in horizontal_segments:
-        plt.plot([x1, x2], [y, y], 'b')
-
-    # Plot vertical segments
-    for x, y1, y2 in vertical_segments:
-        plt.plot([x, x], [y1, y2], 'r')
-
-    # Setting the axes limits
-    plt.xlim(0, x_range[1])
-    plt.ylim(0, y_range[1])
-
-    # Show the plot
-    plt.show()
+    # # Plotting the segments
+    # plt.figure(figsize=(10, 10))
+    #
+    # # Plot horizontal segments
+    # for x1, x2, y in horizontal_segments:
+    #     plt.plot([x1, x2], [y, y], 'b')
+    #
+    # # Plot vertical segments
+    # for x, y1, y2 in vertical_segments:
+    #     plt.plot([x, x], [y1, y2], 'r')
+    #
+    # # Setting the axes limits
+    # plt.xlim(0, x_range[1])
+    # plt.ylim(0, y_range[1])
+    #
+    # # Show the plot
+    # plt.show()
 
     # After generating the line segments and ensuring there are no overlaps within each set,
     # we now format the dataset as text.
