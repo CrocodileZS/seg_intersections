@@ -18,7 +18,7 @@ cm dm dm'
 
 The first line in the input contains the text horizontal segments and an integer $n \ge 1$ denoting the number of horizontal segments. This is followed by $n$ lines, each specifying a horizontal segment $[a_i, a′_i] \times b_i$, where $a_i, a′_i, b_i$ are integers in the range $[0, 2^{16} − 1]$ such that $a′_i \ge a_i$. After all horizontal segments are specified, the vertical segments are specified in a similar way: there is a line containing the text vertical segments and an integer $m \ge 1$, followed by $m$ lines, each specifying a vertical segment $c_i \times [d_i, d′_i]$, where $c_i, d_i, d′_i$ are integers in the range $[0, 2^{16} − 1]$ such that $d′_i \ge d_i$. The figure below shows an example of an input file.
 
-![problem illustration](/figures/problem illustration.png)
+![problem illustration](figures/problem illustration.png)
 
 ## Method
 Max priority queue to store events, AVL tree to store status, 1d range search
@@ -26,11 +26,11 @@ Max priority queue to store events, AVL tree to store status, 1d range search
 ## Evaluation and Result
 ### Evaluation dataset
 
-![generated dataset](/figures/data_plot.png)
+![generated dataset](figures/data_plot.png)
 This figure shows three generated datasets when $n=50$. Taking the first subplot as an example, its generation parameters are as follows: data_generate(x_range=(1, 500), y_range=(1, 500), segment_length_min=25, segment_length_max=50, num_horizontal=50, num_vertical=50). The second and third subplots have the same parameters as the first one, except that segment_length_max is changed to 100 and 250, respectively.
 
 ### Result
-![generated dataset](/figures/plot_combined.png)
+![generated dataset](figures/plot_combined.png)
 The three subplots above represent the results of the SHORT, MEDIUM, and LONG experimental groups, respectively. The three subplots below are enlargements of sections from the above subplots, specifically focusing on the range where $n$ varies from 10 to 250.
 
 
