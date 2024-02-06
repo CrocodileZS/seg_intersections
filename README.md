@@ -5,16 +5,16 @@ Brute-force and plane-sweep algorithms for calculating segment intersections for
 Let $H$ be a set of $n$ horizontal segments in the plane and let $V$ be a set of $m$ vertical segments. The goal of this assignment is to develop and implement a plane-sweep algorithm that counts the number of pairs $(s, s′) \in H \times V$ such that $s$ intersects $s′$. The endpoints of the segments are considered to be part of the segment, so if an endpoint of s lies on $s′$, for example, then $s$ and $s′$ intersect.
 The input file describing a problem instance has the following structure.
 
-```math
-horizontal segments n \\
-a_1 a_1^{\prime} b_1 \\
-... \\
-a_n a_n^{\prime} b_n \\
-vertical segments m \\
-c_1 d_1 d_1^{\prime} \\
-... \\
-c_m d_m d_m^{\prime}
-```
+
+horizontal segments n
+a1 a1' b1 
+...
+an an' bn
+vertical segments m
+c1 d1 d1'
+... 
+cm dm dm'
+
 
 The first line in the input contains the text horizontal segments and an integer $n \ge 1$ denoting the number of horizontal segments. This is followed by $n$ lines, each specifying a horizontal segment $[a_i, a′_i] \times b_i$, where $a_i, a′_i, b_i$ are integers in the range $[0, 2^{16} − 1]$ such that $a′_i \ge a_i$. After all horizontal segments are specified, the vertical segments are specified in a similar way: there is a line containing the text vertical segments and an integer $m \ge 1$, followed by $m$ lines, each specifying a vertical segment $c_i \times [d_i, d′_i]$, where $c_i, d_i, d′_i$ are integers in the range $[0, 2^{16} − 1]$ such that $d′_i \ge d_i$. The figure below shows an example of an input file.
 
